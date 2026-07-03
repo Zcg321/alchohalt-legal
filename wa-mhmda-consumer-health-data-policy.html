@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Consumer Health Data Privacy Policy (WA/NV/CO/CT) — Alchohalt</title>
+<style>
+:root{color-scheme:light dark}
+body{max-width:720px;margin:2.5rem auto;padding:0 1.1rem;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:#fff}
+h1,h2,h3,h4{line-height:1.25;margin:1.8em 0 .5em}h1{margin-top:0}
+a{color:#3F7D6E}hr{border:none;border-top:1px solid #ddd;margin:2em 0}
+code{background:#f2f2f2;padding:.1em .3em;border-radius:3px;font-size:.9em}
+table{border-collapse:collapse;width:100%;margin:1em 0;font-size:.95em}
+th,td{border:1px solid #ccc;padding:.4em .6em;text-align:left;vertical-align:top}
+blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#555}
+@media (prefers-color-scheme:dark){body{color:#e6e6e6;background:#111}a{color:#7fb3a3}code{background:#222}blockquote{color:#aaa}td,th{border-color:#333}hr{border-color:#333}}
+</style></head><body>
+<h1>Consumer Health Data Privacy Policy — Alchohalt</h1>
+<p><strong>Effective date:</strong> 2026-06-21 <strong>Last updated:</strong> 2026-06-21</p>
+<hr>
+<p>This document is <strong>separate from</strong> the <a href="./PRIVACY_POLICY.md">main Privacy Policy</a> because Washington State's My Health My Data Act (MHMDA, RCW 19.373) requires that any entity processing "consumer health data" maintain a separate, plain-language consumer-health-data privacy policy, and that it be linked from the entity's homepage / app.</p>
+<p>It also covers the analogous "consumer health data" or sensitive- category requirements under:</p>
+<ul>
+<li>Nevada SB 370 (2024)</li>
+<li>Colorado Privacy Act (CPA)</li>
+<li>Connecticut Data Privacy Act (CTDPA)</li>
+</ul>
+<p>If you do not reside in WA, NV, CO, or CT, the rights described here may still apply if your jurisdiction enacts similar legislation; we honor them globally as a matter of practice.</p>
+<hr>
+<h2>TL;DR</h2>
+<ul>
+<li>Alchohalt processes drink-tracking patterns, mood tags, and HALT</li>
+</ul>
+<p>  triggers, all of which qualify as <strong>consumer health data</strong> under   the statutes above.</p>
+<ul>
+<li>By default, all of this data stays <strong>on your device only</strong>.</li>
+<li>The <strong>only</strong> time consumer health data leaves your device is if you</li>
+</ul>
+<p>  opt in to the <strong>AI Insights</strong> feature, in which case an anonymized   pattern summary (no journal text, no notes, no PII) is sent through   a server-side proxy to Anthropic. See <a href="./PRIVACY_POLICY.md#5-optional-features-that-change-this-posture">PRIVACY_POLICY.md §5</a>.</p>
+<ul>
+<li>You can <strong>revoke</strong> consent at any time in Settings → AI. Revoking</li>
+</ul>
+<p>  rotates the anonymous device ID locally.</p>
+<ul>
+<li>Under WA MHMDA / NV SB 370 / CO CPA / CT CTDPA, you have specific</li>
+</ul>
+<p>  rights described below. We honor them regardless of which state   you reside in.</p>
+<hr>
+<h2>Not medical advice</h2>
+<p>Alchohalt is a self-tracking tool, not treatment for alcohol use disorder, and it is not a substitute for professional medical care. Alcohol withdrawal can be medically dangerous — if you are a heavy drinker considering quitting or sharply cutting down, please talk to a doctor first. If you are in a medical emergency or need urgent help with substance use, contact emergency services or a healthcare professional right now.</p>
+<hr>
+<h2>1. Categories of consumer health data we process</h2>
+<p>For users who opt into AI Insights, the data sent is described in full detail in <a href="./PRIVACY_POLICY.md#5-optional-features-that-change-this-posture">PRIVACY_POLICY.md §5</a>. In summary, only the following categories are transmitted:</p>
+<ul>
+<li>Drink counts grouped by ISO week (no exact timestamps).</li>
+<li>Mood-tag counts (one-hot enum counts).</li>
+<li>HALT trigger counts (hungry, angry, lonely, tired).</li>
+<li>Intention counts (celebrate, social, taste, bored, cope, other).</li>
+<li>Day-of-week pattern (counts only).</li>
+<li>Current streak length.</li>
+<li>Anonymous device ID generated locally at consent (rotates on revoke).</li>
+<li>Locale code (e.g., <code>en</code>).</li>
+</ul>
+<p>For users who do <strong>not</strong> opt into AI Insights, no consumer health data is transmitted at all. All data stays in the device's local storage. That storage is <strong>not encrypted at rest by the app</strong> — it relies on your device's OS-level encryption and your screen/biometric lock. We recommend keeping a device lock enabled and using the encrypted backup export (premium) for any off-device copies; see <a href="./PRIVACY_POLICY.md#1-what-we-collect">PRIVACY_POLICY.md §1</a>.</p>
+<hr>
+<h2>2. How we collect consumer health data</h2>
+<p>Exclusively through the in-app drink-log, journal, mood, and HALT trigger entry forms. We do not:</p>
+<ul>
+<li>Purchase or otherwise receive consumer health data from third</li>
+</ul>
+<p>  parties.</p>
+<ul>
+<li>Infer consumer health data from non-health categories.</li>
+<li>Use cookies, tracking pixels, advertising IDs, or any cross-site</li>
+</ul>
+<p>  tracking.</p>
+<hr>
+<h2>3. How we use consumer health data</h2>
+<p><strong>By default:</strong> to render the in-app drink log, streak, money-saved, journal, mood timeline, and HALT-trigger analytics that the user themselves sees on their own device.</p>
+<p><strong>If the user opts into AI Insights:</strong> to produce written reflections about the user's patterns. The opt-in summary is sent to Anthropic via a server-side proxy and the response is rendered back to the user's device.</p>
+<p>We do not use consumer health data for:</p>
+<ul>
+<li>Advertising (we run no ads).</li>
+<li>Profiling for any purpose other than user-visible insights.</li>
+<li>Selling or sharing with any third party other than the AI provider</li>
+</ul>
+<p>  on opt-in (Anthropic).</p>
+<ul>
+<li>Training any AI model.</li>
+</ul>
+<hr>
+<h2>4. Sharing of consumer health data</h2>
+<p>We share consumer health data only with the AI provider, and only when the user has explicitly opted in. The exact data shared is described in §1 above. The provider's privacy policy is at https://www.anthropic.com/legal/privacy.</p>
+<p>We do <strong>not</strong> sell consumer health data, as that term is defined in WA RCW 19.373.030(11), to anyone for any consideration.</p>
+<p>We do <strong>not</strong> share consumer health data with affiliates, partners, or service providers except for the AI provider described above.</p>
+<hr>
+<h2>5. Your rights</h2>
+<p>Regardless of which state you reside in, you have the following rights with respect to your consumer health data:</p>
+<h3>5.1 Right to confirm</h3>
+<p>You have the right to confirm whether we are processing your consumer health data. Because we do not collect or store your data on any server, the answer is straightforward: by default, we are not. If you have AI Insights enabled, we are processing your data through the proxy as described in §1 — and the timestamp of each processing event is in your in-app AI Insights history (Settings → AI).</p>
+<h3>5.2 Right to access</h3>
+<p>You can access your consumer health data at any time in the Alchohalt app. Settings → Data Management → "Export data (JSON)" provides a complete machine-readable export.</p>
+<h3>5.3 Right to delete</h3>
+<p>You can delete your consumer health data at any time:</p>
+<ul>
+<li><strong>Locally:</strong> Settings → Data Management → "Wipe all data" (double-</li>
+</ul>
+<p>  confirm).</p>
+<ul>
+<li><strong>In the proxy log:</strong> Settings → AI → Revoke consent. This wipes</li>
+</ul>
+<p>  the anonymous device ID locally, after which the proxy's rate-   limit log cannot be linked back to you.</p>
+<p>Because we do not run a server that stores prompt content or other consumer health data beyond the proxy's anonymous rate-limit log, there is no other server-side data to delete.</p>
+<h3>5.4 Right to revoke consent</h3>
+<p>Settings → AI → Revoke consent. Revocation:</p>
+<ul>
+<li>Stops any in-flight AI Insights request immediately.</li>
+<li>Wipes the local anonymous device ID.</li>
+<li>Future re-grants generate a fresh anonymous device ID, so the</li>
+</ul>
+<p>  proxy's rate-limit log cannot link before-vs-after-revoke usage.</p>
+<h3>5.5 Right to non-discrimination</h3>
+<p>We do not deny services, charge different prices, or provide different quality based on the exercise of any right described here. The free tier remains free regardless of AI Insights consent. Premium-tier features other than AI Insights remain available regardless of AI Insights consent.</p>
+<h3>5.6 Right to appeal (CTDPA / CPA / NV SB 370)</h3>
+<p>If you reside in CT, CO, or NV and believe we have wrongly denied a request under §5.1–5.5, you may appeal by emailing the address in §10 with subject line "Consumer Health Data Appeal." We will respond within 45 days as required by statute. If your appeal is denied, we will provide instructions on contacting your state Attorney General.</p>
+<h3>5.7 Authorized agent</h3>
+<p>If you wish to authorize an agent to exercise these rights on your behalf, the agent may submit a written authorization signed by you, along with proof of the agent's identity. We will verify the authorization before acting on the request.</p>
+<hr>
+<h2>6. Affirmative authorization (WA MHMDA-required)</h2>
+<p>Under WA RCW 19.373.040, sharing consumer health data with a third party requires the consumer's "valid authorization." The AI Insights consent screen in Settings → AI satisfies this requirement by:</p>
+<ul>
+<li>Providing a clear, plain-language description of what consumer</li>
+</ul>
+<p>  health data will be shared.</p>
+<ul>
+<li>Identifying the third party (Anthropic) and linking to that</li>
+</ul>
+<p>  party's privacy policy.</p>
+<ul>
+<li>Identifying the duration of the authorization (until you revoke).</li>
+<li>Identifying the specific purpose (generating written reflections).</li>
+<li>Requiring an affirmative checkbox + button click to grant.</li>
+<li>Allowing revocation at any time without prejudice to the rest</li>
+</ul>
+<p>  of the app.</p>
+<p>The disclosure version (<code>CURRENT_DISCLOSURE_VERSION</code> in <code>src/lib/ai/types.ts</code>) is bumped any time the disclosure copy materially changes; existing authorizations become invalid until re-granted.</p>
+<hr>
+<h2>7. Geolocation and reproductive-health data (WA MHMDA-specific)</h2>
+<p>Alchohalt does <strong>not</strong> collect:</p>
+<ul>
+<li>Precise geolocation data.</li>
+<li>Reproductive- or sexual-health data.</li>
+<li>Biometric data (the Biometric Lock feature uses your device's OS-</li>
+</ul>
+<p>  level biometric API; the biometric template never leaves the   device's secure enclave and is never accessible to Alchohalt).</p>
+<p>WA MHMDA's heightened consent requirements for reproductive-health data and precise geolocation therefore do not apply.</p>
+<hr>
+<h2>8. Children</h2>
+<p>We do not knowingly process consumer health data of any individual under 17 years of age. The app is rated 17+ on the App Store and Mature 17+ on Google Play. If you believe we have inadvertently collected such data, contact us at the address in §10 and we will delete it immediately.</p>
+<hr>
+<h2>9. Changes to this policy</h2>
+<p>When we change this policy, we will:</p>
+<ol>
+<li>Bump <code>CURRENT_DISCLOSURE_VERSION</code> in <code>src/lib/ai/types.ts</code>.</li>
+<li>Show an in-app banner the next time you open the app, requiring</li>
+</ol>
+<p>   explicit re-acknowledgment if AI Insights consent is affected.</p>
+<ol>
+<li>Update the "Last updated" date at the top of this file.</li>
+</ol>
+<p>We do not retro-apply changes to data that was already processed under a prior version.</p>
+<hr>
+<h2>10. Contact</h2>
+<p>For questions, requests, or appeals under this policy:</p>
+<ul>
+<li>GitHub Discussion: https://github.com/Zcg321/Alchohalt/discussions</li>
+<li>GitHub Issue: https://github.com/Zcg321/Alchohalt/issues</li>
+<li>(Owner: replace with <code>privacy@alchohalt.app</code> once the domain is set up.)</li>
+</ul>
+<p>For state-specific Attorney General contact information:</p>
+<ul>
+<li>WA: https://www.atg.wa.gov</li>
+<li>NV: https://ag.nv.gov</li>
+<li>CO: https://coag.gov</li>
+<li>CT: https://portal.ct.gov/AG</li>
+</ul>
+</body></html>
