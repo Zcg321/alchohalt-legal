@@ -24,4 +24,4 @@ Once GitHub Pages is enabled (Settings → Pages → Deploy from branch `main`, 
 
 These files are static HTML with no tracking, no scripts, and no external requests. They are generated from the Markdown sources maintained in the main Alchohalt project. To update a policy, replace the corresponding `.html` file and push to `main`; GitHub Pages redeploys automatically.
 
-Effective date of current documents: **2026-06-21**.
+Effective date of current documents: **2026-07-19**.

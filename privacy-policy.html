@@ -14,22 +14,22 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 @media (prefers-color-scheme:dark){body{color:#e6e6e6;background:#111}a{color:#7fb3a3}code{background:#222}blockquote{color:#aaa}td,th{border-color:#333}hr{border-color:#333}}
 </style></head><body>
 <h1>Privacy Policy — Alchohalt</h1>
-<p><strong>Effective date:</strong> 2026-07-05 <strong>Last updated:</strong> 2026-07-05</p>
+<p><strong>Effective date:</strong> 2026-07-19 <strong>Last updated:</strong> 2026-07-19</p>
 <hr>
 <h2>TL;DR</h2>
 <p><strong>What you log stays on your phone by default.</strong> We don't run a server that sees your drink log, mood, or journal entries. The only third parties that ever see anything from your use of Alchohalt are:</p>
 <ol>
-<li><strong>Apple App Store / Google Play</strong> — if and when in-app purchases are</li>
+<li><strong>Apple App Store / Google Play</strong> — when you buy Premium, they handle</li>
 </ol>
-<p>   offered, they handle your subscription payment. They would tell us    only "this anonymous user paid." They don't tell us your name, card,    or anything else. This build ships with in-app purchases disabled, so    no purchase path is active today.</p>
+<p>   your subscription payment. They tell us only "this anonymous user    paid." They don't tell us your name, card, or anything else. In-app    purchases are enabled in this build; Premium is optional and the free    tier never requires payment.</p>
 <ol>
-<li><strong>RevenueCat</strong> (purchase-validation broker) — if and when in-app</li>
+<li><strong>RevenueCat</strong> (purchase-validation broker) — when you buy Premium,</li>
 </ol>
-<p>   purchases are offered, they would receive an anonymous user ID and a    product ID at the moment you make a purchase, so we can confirm your    premium entitlement is real. They never see what you log.</p>
+<p>   they receive an anonymous user ID and a    product ID at the moment you make a purchase, so we can confirm your    premium entitlement is real. They never see what you log.</p>
 <ol>
-<li><strong>Anthropic — only if you opt in to AI Insights.</strong> AI Insights is</li>
+<li>**Anthropic — only if you opt in to AI</li>
 </ol>
-<p>   off by default. When you turn it on, an anonymized summary of your    patterns (drink counts grouped by week, mood-tag counts, HALT    counts, streak length, day-of-week pattern) is sent through a    server-side proxy to Anthropic. <strong>Your raw data — journal text,    notes, exact times, custom drink names — never    leaves the device, even with AI Insights on.</strong> See Section 5 for    the full data flow. Everything else — every drink you log, every mood tag, every HALT trigger, every dollar spent, every journal entry — stays on your device unless you (a) explicitly export it, or (b) opt in to AI Insights.</p>
+<p>   Insights.<strong> AI Insights is off by default. When you turn it on, an    anonymized summary of your patterns (weekly standard-drink totals    and drink counts, weekly craving averages, mood-tag counts, HALT    counts, intention counts, streak length, day-of-week pattern) is    sent through a server-side proxy to Anthropic (Claude). v1 uses    Anthropic only. </strong>Your raw data — journal text,    notes, exact times, custom drink names — never    leaves the device, even with AI Insights on.** See Section 5 for    the full data flow. Everything else — every drink you log, every mood tag, every HALT trigger, every dollar spent, every journal entry — stays on your device unless you (a) explicitly export it, or (b) opt in to AI Insights.</p>
 <p>There is no account, no sign-up, and no email — the app has no server that could receive your entries.</p>
 <hr>
 <h2>1. What we collect</h2>
@@ -51,17 +51,17 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 </ul>
 <p>  you choose. It is <strong>not encrypted</strong> — it carries a checksum for   integrity only, not confidentiality. Treat it like any sensitive file.</p>
 <ul>
-<li><strong>Encrypted backup</strong> (premium, <code>.alch-backup</code>): encrypted on your</li>
+<li><strong>Encrypted backup</strong> (free, <code>.alch-backup</code>): encrypted on your</li>
 </ul>
 <p>  device with a passphrase you choose (Argon2id key derivation +   XChaCha20-Poly1305). We never see the passphrase or the contents.</p>
 <p>Both exports produce a file <strong>you</strong> hold. The app has no account and no server, so there is nothing else to "back up to" — your only off-device copies are the files you choose to make.</p>
 <h3>Transmitted to third parties</h3>
 <p>The only data that ever leaves your device:</p>
-<blockquote><strong>Note:</strong> The purchase rows below describe the flow that activates <strong>if and when in-app purchases are enabled</strong>. This build ships with in-app purchases disabled, so no purchase data leaves the device today.</blockquote>
+<blockquote><strong>Note:</strong> In-app purchases are ENABLED in this build (<code>.env.production</code> sets <code>VITE_ENABLE_IAP=true</code>). The purchase-flow rows below describe the exact data that leaves the device when you tap "Purchase" or "Restore Purchases." No purchase data leaves the device otherwise.</blockquote>
 <table><thead><tr><th>Recipient</th><th>What they see</th><th>When</th><th>Why</th></tr></thead><tbody>
 <tr><td>Apple / Google</td><td>Anonymous purchase token + product ID</td><td>Only when you tap "Purchase" or "Restore Purchases"</td><td>They process the payment + give you a receipt</td></tr>
 <tr><td>RevenueCat</td><td>Same purchase token + your device's anonymous app-instance ID</td><td>Same moments</td><td>They validate the receipt + tell us the premium entitlement is active</td></tr>
-<tr><td><strong>Anthropic</strong> (via server-side proxy)</td><td><strong>Anonymized pattern summary</strong> — see Section 5 for the exact field list</td><td><strong>Only if you opt in to AI Insights AND tap "Generate insights"</strong></td><td>They generate written reflections from the summary</td></tr>
+<tr><td><strong>Anthropic</strong> (Claude, via server-side proxy)</td><td><strong>Anonymized pattern summary</strong> — see Section 5 for the exact field list</td><td><strong>Only if you opt in to AI Insights AND tap "Generate insights"</strong></td><td>They generate written reflections from the summary</td></tr>
 <tr><td>988 / SAMHSA / hotlines</td><td>Whatever you say in the call/text</td><td>Only when YOU tap a hotline link in our Crisis Resources page</td><td>They are the actual crisis service. We don't see what you say.</td></tr>
 <tr><td>External support sites (AA, SMART Recovery)</td><td>Whatever your browser tells them</td><td>Only when YOU tap a "Visit" link</td><td>We don't proxy these — they're direct browser links.</td></tr>
 </tbody></table>
@@ -94,7 +94,7 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <li>Verify that your premium subscription is active when you open the app</li>
 <li>Restore your premium access if you delete and reinstall the app</li>
 </ul>
-<p>This build ships with in-app purchases disabled, so no purchase path is active today.</p>
+<p>In-app purchases are enabled in this build. Premium is entirely optional — the free tier is permanent and never requires payment — and no purchase data is collected unless you choose to buy.</p>
 <p>We do not sell, share, rent, or otherwise transfer your data to anyone else. We have no advertising partners.</p>
 <hr>
 <h2>3. Data retention</h2>
@@ -113,7 +113,7 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <ul>
 <li><strong>Access / portability:</strong> open Settings → "Export data (JSON)" or</li>
 </ul>
-<p>  use the encrypted backup feature (premium).</p>
+<p>  use the encrypted backup feature (also free).</p>
 <ul>
 <li><strong>Correction:</strong> edit any entry directly in the app.</li>
 <li><strong>Erasure:</strong> Settings → "Wipe all data" (double-confirm). Because</li>
@@ -125,7 +125,7 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <p>  nothing to opt out of — we do not sell or share your data and we run   no advertising. (California CCPA/CPRA, Virginia VCDPA, Colorado CPA,   Connecticut CTDPA.)</p>
 <p>For the purchase-token slice held by Apple/Google/RevenueCat, those parties are the relevant data controllers/processors for those records; you can also contact them directly.</p>
 <p>If you reside in the EU/EEA, the UK, California, Virginia, Colorado, Connecticut, or another jurisdiction granting additional rights, those rights apply. To exercise any right, email the address in Section 8 — note that for on-device data we have nothing to retrieve on our side, so the fastest path is the in-app Export / Wipe controls above. We do not charge a fee for, or discriminate against, exercising these rights.</p>
-<p>Residents of Washington, Nevada, Colorado, and Connecticut have additional consumer-health-data rights — see the <a href="./CONSUMER_HEALTH_DATA_POLICY.md">Consumer Health Data Privacy Policy</a>.</p>
+<p>Residents of Washington, Nevada, Colorado, and Connecticut have additional consumer-health-data rights — see the <a href="wa-mhmda-consumer-health-data-policy.html">Consumer Health Data Privacy Policy</a>.</p>
 <hr>
 <h2>5. Optional features that change this posture</h2>
 <h3>Crash reporting — OFF by default</h3>
@@ -144,9 +144,12 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <li>Tapping <strong>Enable AI Insights</strong>.</li>
 </ol>
 <h4>What gets sent (only after you opt in)</h4>
-<p>When you tap "Generate insights," an anonymized summary is built locally on your device and sent through our server-side proxy to Anthropic (Claude). The summary contains exclusively:</p>
+<p>When you tap "Generate insights," an anonymized summary is built locally on your device and sent through our server-side proxy to Anthropic (Claude). v1 uses Anthropic only. The summary contains exclusively:</p>
 <ul>
-<li>Drink counts grouped by ISO week (no exact timestamps).</li>
+<li>Weekly buckets grouped by ISO week: drink counts, total standard</li>
+</ul>
+<p>  drinks, and average craving level per week (no exact timestamps).</p>
+<ul>
 <li>Mood-tag counts (e.g., <code>happy: 12, anxious: 4</code>).</li>
 <li>HALT trigger counts (hungry / angry / lonely / tired).</li>
 <li>Intention counts (celebrate / social / taste / bored / cope / other).</li>
@@ -179,10 +182,18 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <p>  AI-Insights anonymous instance ID.</p>
 <h4>Provider posture (Anthropic)</h4>
 <ul>
-<li>Anthropic does not train its production models on customer data.</li>
-<li>Prompts may be retained for up to 30 days for abuse detection.</li>
-<li>See https://www.anthropic.com/legal/privacy.</li>
+<li>Anthropic does not train its production models on this data.</li>
+<li>Anthropic may retain prompts for up to approximately 30 days for</li>
 </ul>
+<p>  abuse detection. See https://www.anthropic.com/legal/privacy.</p>
+<ul>
+<li>Our proxy retains only anonymous rate-limit and budget counters</li>
+</ul>
+<p>  (never prompt content) for about 30 days.</p>
+<ul>
+<li>Gemini is a planned v1.1 fallback. v1 sends to Anthropic only;</li>
+</ul>
+<p>  adding Gemini will update this policy and re-request your consent.</p>
 <h4>How the proxy works</h4>
 <p>Alchohalt itself does <strong>not</strong> embed an AI provider API key in the app bundle. The opt-in network call goes to a server-side proxy that holds the API key and rate-limits per anonymous device ID. We log only the timestamp and the anonymous ID for rate-limiting; we do not log the prompt body. The proxy retains nothing else about your usage.</p>
 <p>In v1.0 the proxy is not yet deployed; the consent flow is live but the network call itself is gated behind a feature flag and returns a "coming in v1.1" placeholder. No data leaves the device until the proxy ships.</p>
@@ -196,10 +207,10 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <p>  proxy cannot link before-vs-after-revoke usage.</p>
 <p>There is nothing for us to delete on the server side beyond the proxy's rate-limit log; that log retains only the anonymous ID and timestamps, not your prompt content.</p>
 <h4>Your state-specific rights</h4>
-<p>If you reside in Washington (MHMDA), Nevada (SB 370), Colorado (CPA), or Connecticut (CTDPA), additional consumer-health-data rights apply. See <a href="./CONSUMER_HEALTH_DATA_POLICY.md">Consumer Health Data Privacy Policy</a> for the state-specific disclosures.</p>
+<p>If you reside in Washington (MHMDA), Nevada (SB 370), Colorado (CPA), or Connecticut (CTDPA), additional consumer-health-data rights apply. See <a href="wa-mhmda-consumer-health-data-policy.html">Consumer Health Data Privacy Policy</a> for the state-specific disclosures.</p>
 <hr>
 <h2>6. Children</h2>
-<p>Alchohalt is rated 17+ on the App Store and Mature 17+ on Google Play because it tracks alcohol consumption. It is <strong>not directed at, or intended for, children</strong>, and we do not knowingly collect personal information from anyone under 17. Because the app has no general account system and stores data on-device, we do not knowingly collect data from children under 13 within the meaning of the U.S. Children's Online Privacy Protection Act (COPPA) — there is no server-side record for us to hold. If a child has used the app, the data is on that device only; uninstalling the app or using "Wipe all data" removes it.</p>
+<p>Alchohalt is rated <strong>18+ on the App Store</strong>, and on Google Play we set the <strong>target audience to 18+</strong> (a field separate from the IARC content rating that Google Play assigns from the alcohol subject matter). It is <strong>not directed at, or intended for, children</strong>, and we do not knowingly collect personal information from anyone under 18. Because the app has no general account system and stores data on-device, we do not knowingly collect data from children under 13 within the meaning of the U.S. Children's Online Privacy Protection Act (COPPA) — there is no server-side record for us to hold. If a child has used the app, the data is on that device only; uninstalling the app or using "Wipe all data" removes it.</p>
 <hr>
 <h2>7. Not medical advice</h2>
 <p>Alchohalt is a self-tracking tool, not treatment for alcohol use disorder, and it is not a substitute for professional medical care. Alcohol withdrawal can be medically dangerous — if you are a heavy drinker considering quitting or sharply cutting down, please talk to a doctor first. If you are in a medical emergency or need urgent help with substance use, contact emergency services or a healthcare professional right now.</p>

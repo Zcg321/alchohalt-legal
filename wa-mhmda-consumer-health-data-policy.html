@@ -14,9 +14,9 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 @media (prefers-color-scheme:dark){body{color:#e6e6e6;background:#111}a{color:#7fb3a3}code{background:#222}blockquote{color:#aaa}td,th{border-color:#333}hr{border-color:#333}}
 </style></head><body>
 <h1>Consumer Health Data Privacy Policy — Alchohalt</h1>
-<p><strong>Effective date:</strong> 2026-07-05 <strong>Last updated:</strong> 2026-07-05</p>
+<p><strong>Effective date:</strong> 2026-07-19 <strong>Last updated:</strong> 2026-07-19</p>
 <hr>
-<p>This document is <strong>separate from</strong> the <a href="./PRIVACY_POLICY.md">main Privacy Policy</a> because Washington State's My Health My Data Act (MHMDA, RCW 19.373) requires that any entity processing "consumer health data" maintain a separate, plain-language consumer-health-data privacy policy, and that it be linked from the entity's homepage / app.</p>
+<p>This document is <strong>separate from</strong> the <a href="privacy-policy.html">main Privacy Policy</a> because Washington State's My Health My Data Act (MHMDA, RCW 19.373) requires that any entity processing "consumer health data" maintain a separate, plain-language consumer-health-data privacy policy, and that it be linked from the entity's homepage / app.</p>
 <p>It also covers the analogous "consumer health data" or sensitive- category requirements under:</p>
 <ul>
 <li>Nevada SB 370 (2024)</li>
@@ -34,7 +34,7 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <li>By default, all of this data stays <strong>on your device only</strong>.</li>
 <li>The <strong>only</strong> time consumer health data leaves your device is if you</li>
 </ul>
-<p>  opt in to the <strong>AI Insights</strong> feature, in which case an anonymized   pattern summary (no journal text, no notes, no PII) is sent through   a server-side proxy to Anthropic. See <a href="./PRIVACY_POLICY.md#5-optional-features-that-change-this-posture">PRIVACY_POLICY.md §5</a>.</p>
+<p>  opt in to the <strong>AI Insights</strong> feature, in which case an anonymized   pattern summary (no journal text, no notes, no PII) — weekly   standard-drink totals and drink-days, weekly craving averages,   mood-tag counts, HALT counts, intention counts, day-of-week counts,   and current streak length — is sent through a server-side proxy to   <strong>Anthropic</strong> (Claude). v1 uses Anthropic only.   See <a href="privacy-policy.html#5-optional-features-that-change-this-posture">PRIVACY_POLICY.md §5</a>.</p>
 <ul>
 <li>You can <strong>revoke</strong> consent at any time in Settings → AI. Revoking</li>
 </ul>
@@ -48,9 +48,12 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <p>Alchohalt is a self-tracking tool, not treatment for alcohol use disorder, and it is not a substitute for professional medical care. Alcohol withdrawal can be medically dangerous — if you are a heavy drinker considering quitting or sharply cutting down, please talk to a doctor first. If you are in a medical emergency or need urgent help with substance use, contact emergency services or a healthcare professional right now.</p>
 <hr>
 <h2>1. Categories of consumer health data we process</h2>
-<p>For users who opt into AI Insights, the data sent is described in full detail in <a href="./PRIVACY_POLICY.md#5-optional-features-that-change-this-posture">PRIVACY_POLICY.md §5</a>. In summary, only the following categories are transmitted:</p>
+<p>For users who opt into AI Insights, the data sent is described in full detail in <a href="privacy-policy.html#5-optional-features-that-change-this-posture">PRIVACY_POLICY.md §5</a>. In summary, only the following categories are transmitted:</p>
 <ul>
-<li>Drink counts grouped by ISO week (no exact timestamps).</li>
+<li>Weekly buckets grouped by ISO week: drink counts, total standard</li>
+</ul>
+<p>  drinks, and average craving level per week (no exact timestamps).</p>
+<ul>
 <li>Mood-tag counts (one-hot enum counts).</li>
 <li>HALT trigger counts (hungry, angry, lonely, tired).</li>
 <li>Intention counts (celebrate, social, taste, bored, cope, other).</li>
@@ -59,7 +62,7 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <li>Anonymous device ID generated locally at consent (rotates on revoke).</li>
 <li>Locale code (e.g., <code>en</code>).</li>
 </ul>
-<p>For users who do <strong>not</strong> opt into AI Insights, no consumer health data is transmitted at all. All data stays in the device's local storage. That storage is <strong>not encrypted at rest by the app</strong> — it relies on your device's OS-level encryption and your device screen lock. We recommend keeping a device lock enabled and using the encrypted backup export (premium) for any off-device copies; see <a href="./PRIVACY_POLICY.md#1-what-we-collect">PRIVACY_POLICY.md §1</a>.</p>
+<p>For users who do <strong>not</strong> opt into AI Insights, no consumer health data is transmitted at all. All data stays in the device's local storage. That storage is <strong>not encrypted at rest by the app</strong> — it relies on your device's OS-level encryption and your device screen lock. We recommend keeping a device lock enabled and using the encrypted backup export (free) for any off-device copies; see <a href="privacy-policy.html#1-what-we-collect">PRIVACY_POLICY.md §1</a>.</p>
 <hr>
 <h2>2. How we collect consumer health data</h2>
 <p>Exclusively through the in-app drink-log, journal, mood, and HALT trigger entry forms. We do not:</p>
@@ -75,7 +78,7 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <hr>
 <h2>3. How we use consumer health data</h2>
 <p><strong>By default:</strong> to render the in-app drink log, streak, money-saved, journal, mood timeline, and HALT-trigger analytics that the user themselves sees on their own device.</p>
-<p><strong>If the user opts into AI Insights:</strong> to produce written reflections about the user's patterns. The opt-in summary is sent to Anthropic via a server-side proxy and the response is rendered back to the user's device.</p>
+<p><strong>If the user opts into AI Insights:</strong> to produce written reflections about the user's patterns. The opt-in summary is sent to <strong>Anthropic</strong> (Claude) via a server-side proxy and the response is rendered back to the user's device. Anthropic retains prompts for up to approximately 30 days for abuse detection only and does not train on this data. Our proxy retains only anonymous rate-limit and budget counters (never prompt content) for about 30 days. (Gemini is a planned v1.1 fallback; adding it will update this policy and re-request consent.)</p>
 <p>We do not use consumer health data for:</p>
 <ul>
 <li>Advertising (we run no ads).</li>
@@ -131,9 +134,9 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 </ul>
 <p>  health data will be shared.</p>
 <ul>
-<li>Identifying the third party (Anthropic) and linking to that</li>
+<li>Identifying the third party (Anthropic) and linking to its privacy</li>
 </ul>
-<p>  party's privacy policy.</p>
+<p>  policy.</p>
 <ul>
 <li>Identifying the duration of the authorization (until you revoke).</li>
 <li>Identifying the specific purpose (generating written reflections).</li>
@@ -154,7 +157,7 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 <p>WA MHMDA's heightened consent requirements for reproductive-health data and precise geolocation therefore do not apply.</p>
 <hr>
 <h2>8. Children</h2>
-<p>We do not knowingly process consumer health data of any individual under 17 years of age. The app is rated 17+ on the App Store and Mature 17+ on Google Play. If you believe we have inadvertently collected such data, contact us at the address in §10 and we will delete it immediately.</p>
+<p>We do not knowingly process consumer health data of any individual under 18 years of age. The app is rated <strong>18+ on the App Store</strong>, and on Google Play we set the <strong>target audience to 18+</strong> (a field separate from the IARC content rating that Google Play assigns from the alcohol subject matter). If you believe we have inadvertently collected such data, contact us at the address in §10 and we will delete it immediately.</p>
 <hr>
 <h2>9. Changes to this policy</h2>
 <p>When we change this policy, we will:</p>
