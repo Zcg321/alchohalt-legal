@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy — Alchohalt — Alchohalt</title>
+<title>Privacy Policy — Alchohalt</title>
 <style>
 :root{color-scheme:light dark}
 body{max-width:720px;margin:2.5rem auto;padding:0 1.1rem;font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;background:#fff}
@@ -14,211 +14,105 @@ blockquote{border-left:3px solid #3F7D6E;margin:1em 0;padding:.2em 1em;color:#55
 @media (prefers-color-scheme:dark){body{color:#e6e6e6;background:#111}a{color:#7fb3a3}code{background:#222}blockquote{color:#aaa}td,th{border-color:#333}hr{border-color:#333}}
 </style></head><body>
 <h1>Privacy Policy — Alchohalt</h1>
-<p><strong>Effective date:</strong> 2026-07-19 <strong>Last updated:</strong> 2026-07-19</p>
+<p><strong>Effective date:</strong> [OWNER: set at submission] &nbsp;<strong>Last updated:</strong> 2026-09-17</p>
 <hr>
 <h2>TL;DR</h2>
-<p><strong>What you log stays on your phone by default.</strong> We don't run a server that sees your drink log, mood, or journal entries. The only third parties that ever see anything from your use of Alchohalt are:</p>
+<p><strong>What you log stays on your phone by default.</strong> Alchohalt has no account system and we operate no server that could receive your data. Everything you enter — drink log, mood tags, HALT triggers, journal, goals, settings — lives only in your device's local storage.</p>
+<p>The only third parties that ever see anything related to your use of Alchohalt are:</p>
 <ol>
-<li><strong>Apple App Store / Google Play</strong> — when you buy Premium, they handle</li>
+<li><strong>Apple App Store / Google Play</strong> — when you buy Premium, they process your payment. They tell us only that an anonymous purchase is valid. They never tell us your name, card, or anything you logged.</li>
+<li><strong>RevenueCat</strong> (purchase-validation broker) — at the moment you purchase or restore, they receive an anonymous app-instance ID and a product ID so we can confirm your premium entitlement is real. They never see what you log.</li>
+<li><strong>Our AI model provider — only if you opt in to AI Insights (your first insight is free; unlimited insights are a premium feature).</strong> Off by default. Turning it on requires explicit consent, and only an anonymized pattern summary ever leaves the device. <strong>Your raw data — journal text, notes, exact times, custom drink names — never leaves the device, even with AI Insights on.</strong> See Section 5.</li>
 </ol>
-<p>   your subscription payment. They tell us only "this anonymous user    paid." They don't tell us your name, card, or anything else. In-app    purchases are enabled in this build; Premium is optional and the free    tier never requires payment.</p>
-<ol>
-<li><strong>RevenueCat</strong> (purchase-validation broker) — when you buy Premium,</li>
-</ol>
-<p>   they receive an anonymous user ID and a    product ID at the moment you make a purchase, so we can confirm your    premium entitlement is real. They never see what you log.</p>
-<ol>
-<li>**Anthropic — only if you opt in to AI</li>
-</ol>
-<p>   Insights.<strong> AI Insights is off by default. When you turn it on, an    anonymized summary of your patterns (weekly standard-drink totals    and drink counts, weekly craving averages, mood-tag counts, HALT    counts, intention counts, streak length, day-of-week pattern) is    sent through a server-side proxy to Anthropic (Claude). v1 uses    Anthropic only. </strong>Your raw data — journal text,    notes, exact times, custom drink names — never    leaves the device, even with AI Insights on.** See Section 5 for    the full data flow. Everything else — every drink you log, every mood tag, every HALT trigger, every dollar spent, every journal entry — stays on your device unless you (a) explicitly export it, or (b) opt in to AI Insights.</p>
-<p>There is no account, no sign-up, and no email — the app has no server that could receive your entries.</p>
+<p>There is no account, no sign-up, and no email. Nobody — including us — can see your entries, because they never leave your phone.</p>
 <hr>
 <h2>1. What we collect</h2>
 <h3>On your device only (not transmitted anywhere)</h3>
 <ul>
-<li>Drink log entries (timestamp, type, amount, cost, intention, craving,</li>
-</ul>
-<p>  HALT flags)</p>
-<ul>
+<li>Drink log entries (timestamp, drink type, amount, cost, intention, craving level, HALT flags)</li>
 <li>Goals (daily/weekly limits, monthly budget)</li>
 <li>Journal entries (text + emoji + mood tag)</li>
 <li>Streak counts and statistics</li>
 <li>App preferences (language, theme, reminder settings)</li>
 </ul>
-<p>This data lives in your device's local storage (Capacitor Preferences API on Android / iOS, IndexedDB / localStorage on web). It is <strong>not encrypted at rest</strong> — it relies on your device's own protections (your device screen lock and OS sandboxing). We have no remote copy. We cannot recover it if you uninstall the app.</p>
-<h4>Files you export are controlled by you</h4>
+<p>This data lives in your device's local storage — Capacitor Preferences on iOS / Android, localStorage on web. It is <strong>not encrypted at rest by the app</strong> — it relies on your device's own protections (device screen lock and OS sandboxing). We have no remote copy. If you uninstall the app without making a backup, we cannot recover your data because we never had it.</p>
+<h3>Files you create (you hold them; we never see them)</h3>
 <ul>
-<li><strong>JSON export</strong> (free): a plain-text <code>.json</code> file you save wherever</li>
+<li><strong>Encrypted backup</strong> (free): a <code>.alch-backup</code> file sealed on your device with a passphrase you choose (Argon2id key derivation + XChaCha20-Poly1305). Your passphrase never leaves the device. If you forget it, the backup cannot be opened — by you, by us, by anyone. That is by design.</li>
+<li><strong>Plaintext export</strong> (free): JSON and CSV files you save wherever you choose. These are <strong>not encrypted</strong> — treat them like any sensitive file. Once exported, protecting them is your responsibility.</li>
 </ul>
-<p>  you choose. It is <strong>not encrypted</strong> — it carries a checksum for   integrity only, not confidentiality. Treat it like any sensitive file.</p>
-<ul>
-<li><strong>Encrypted backup</strong> (free, <code>.alch-backup</code>): encrypted on your</li>
-</ul>
-<p>  device with a passphrase you choose (Argon2id key derivation +   XChaCha20-Poly1305). We never see the passphrase or the contents.</p>
-<p>Both exports produce a file <strong>you</strong> hold. The app has no account and no server, so there is nothing else to "back up to" — your only off-device copies are the files you choose to make.</p>
+<p>Both produce a file <strong>you</strong> hold. You may save or share the file through your device's share sheet to your own cloud storage (e.g. iCloud Drive, Google Drive) or email it to yourself — that choice is yours, and we are never a party to it. There is no live sync: the app has no server, so nothing updates anywhere automatically.</p>
 <h3>Transmitted to third parties</h3>
 <p>The only data that ever leaves your device:</p>
-<blockquote><strong>Note:</strong> In-app purchases are ENABLED in this build (<code>.env.production</code> sets <code>VITE_ENABLE_IAP=true</code>). The purchase-flow rows below describe the exact data that leaves the device when you tap "Purchase" or "Restore Purchases." No purchase data leaves the device otherwise.</blockquote>
 <table><thead><tr><th>Recipient</th><th>What they see</th><th>When</th><th>Why</th></tr></thead><tbody>
 <tr><td>Apple / Google</td><td>Anonymous purchase token + product ID</td><td>Only when you tap "Purchase" or "Restore Purchases"</td><td>They process the payment + give you a receipt</td></tr>
 <tr><td>RevenueCat</td><td>Same purchase token + your device's anonymous app-instance ID</td><td>Same moments</td><td>They validate the receipt + tell us the premium entitlement is active</td></tr>
-<tr><td><strong>Anthropic</strong> (Claude, via server-side proxy)</td><td><strong>Anonymized pattern summary</strong> — see Section 5 for the exact field list</td><td><strong>Only if you opt in to AI Insights AND tap "Generate insights"</strong></td><td>They generate written reflections from the summary</td></tr>
+<tr><td><strong>AI model provider</strong> (via our server-side proxy; currently Anthropic, may be OpenAI — we choose at deploy time)</td><td><strong>Anonymized pattern summary</strong> — see Section 5 for the exact field list</td><td><strong>Only if you opt in to AI Insights AND tap "Generate insights"</strong></td><td>They generate written reflections from the summary</td></tr>
 <tr><td>988 / SAMHSA / hotlines</td><td>Whatever you say in the call/text</td><td>Only when YOU tap a hotline link in our Crisis Resources page</td><td>They are the actual crisis service. We don't see what you say.</td></tr>
 <tr><td>External support sites (AA, SMART Recovery)</td><td>Whatever your browser tells them</td><td>Only when YOU tap a "Visit" link</td><td>We don't proxy these — they're direct browser links.</td></tr>
 </tbody></table>
 <p>That's the complete list.</p>
-<h3>What we do NOT collect by default</h3>
+<h3>What we do NOT collect</h3>
 <ul>
-<li>Your name, email, phone number, or address — there is no account</li>
-</ul>
-<p>  system at all: no login, no sign-up, no profile.</p>
-<ul>
-<li>Your IP address (beyond what Apple/Google's payment infrastructure,</li>
-</ul>
-<p>  and the AI proxy if you opt in to AI Insights, inherently see)</p>
-<ul>
-<li>Cookies, tracking pixels, advertising IDs</li>
-<li>Crash reports unless you opt in (off by default; in the current</li>
-</ul>
-<p>  release no crash-reporting endpoint is configured, so nothing is   sent even if you opt in — see Section 5)</p>
-<ul>
-<li>Analytics (PostHog, Mixpanel, Google Analytics, Firebase Analytics —</li>
-</ul>
-<p>  none of these are integrated, and a source-level test enforces it)</p>
-<ul>
-<li>Your precise location or GPS data — ever, in any feature</li>
+<li>Your name, email, phone number, or address — there is no account system at all: no login, no sign-up, no profile.</li>
+<li>Your IP address (beyond what Apple/Google's payment infrastructure inherently sees during a purchase).</li>
+<li>Cookies, tracking pixels, advertising IDs.</li>
+<li>Analytics (PostHog, Mixpanel, Google Analytics, Firebase Analytics — none of these are integrated, and a source-level test enforces it).</li>
+<li>Your precise location or GPS data — ever, in any feature.</li>
 </ul>
 <hr>
 <h2>2. How we use what we collect</h2>
-<p>When in-app purchases are enabled, the purchase-token data flowing through Apple/Google/RevenueCat is used <strong>only</strong> to:</p>
+<p>The purchase-token data flowing through Apple/Google/RevenueCat is used <strong>only</strong> to:</p>
 <ul>
-<li>Verify that your premium subscription is active when you open the app</li>
-<li>Restore your premium access if you delete and reinstall the app</li>
+<li>Verify that your premium subscription is active when you open the app.</li>
+<li>Restore your premium access if you delete and reinstall the app.</li>
 </ul>
-<p>In-app purchases are enabled in this build. Premium is entirely optional — the free tier is permanent and never requires payment — and no purchase data is collected unless you choose to buy.</p>
 <p>We do not sell, share, rent, or otherwise transfer your data to anyone else. We have no advertising partners.</p>
 <hr>
 <h2>3. Data retention</h2>
 <ul>
-<li><strong>On your device:</strong> retained until you delete the app or use the</li>
-</ul>
-<p>  "Wipe all data" button in Settings.</p>
-<ul>
+<li><strong>On your device:</strong> retained until you delete the app or use the "Wipe all data" control in Settings (double-confirm). Either action removes every copy we could ever reach — there is no server-side copy.</li>
 <li><strong>Apple / Google:</strong> retained per their respective privacy policies.</li>
-<li><strong>RevenueCat:</strong> retained per their privacy policy</li>
+<li><strong>RevenueCat:</strong> retained per their privacy policy (https://www.revenuecat.com/privacy). Typically the purchase record is kept for the lifetime of your subscription plus the accounting period they require.</li>
 </ul>
-<p>  (https://www.revenuecat.com/privacy). Typically the purchase record   is kept for the lifetime of your subscription plus 7 years for   accounting. We operate <strong>no server that holds your personal data.</strong> The optional AI Insights proxy, if you ever enable it, keeps only an anonymous rate-limit log (a rotating anonymous ID + timestamps — no entries, no identity, no prompt content); see Section 5. In v1.0 that proxy is not even deployed, so nothing is retained off-device at all.</p>
+<p>We retain nothing on our own servers because we don't operate any.</p>
 <hr>
 <h2>4. Your rights (GDPR / UK GDPR / CCPA-CPRA / VCDPA / CPA / CTDPA)</h2>
 <p>Under applicable data-protection laws you have rights to access, port, correct, and erase your data, and to be free from discrimination for exercising them. Because, by default, all of your data is on your own device:</p>
 <ul>
-<li><strong>Access / portability:</strong> open Settings → "Export data (JSON)" or</li>
-</ul>
-<p>  use the encrypted backup feature (also free).</p>
-<ul>
+<li><strong>Access / portability:</strong> Settings → Backup → "Plaintext export &amp; import" (JSON/CSV), or the free encrypted backup.</li>
 <li><strong>Correction:</strong> edit any entry directly in the app.</li>
-<li><strong>Erasure:</strong> Settings → "Wipe all data" (double-confirm). Because</li>
+<li><strong>Erasure:</strong> Settings → "Wipe all data" (double-confirm). Because your data lives only on this device, this removes every copy we could ever reach. If you saved a backup or export file, delete that file too — it is the only other copy, and only you hold it.</li>
+<li><strong>Opt out of "sale" / "sharing" / targeted advertising:</strong> there is nothing to opt out of — we do not sell or share your data and we run no advertising. (California CCPA/CPRA, Virginia VCDPA, Colorado CPA, Connecticut CTDPA.)</li>
 </ul>
-<p>  your data lives only on this device, this removes every copy we could   ever reach. If you saved an encrypted backup file, delete that file   too — it is the only other copy, and only you hold it.</p>
-<ul>
-<li><strong>Opt out of "sale" / "sharing" / targeted advertising:</strong> there is</li>
-</ul>
-<p>  nothing to opt out of — we do not sell or share your data and we run   no advertising. (California CCPA/CPRA, Virginia VCDPA, Colorado CPA,   Connecticut CTDPA.)</p>
 <p>For the purchase-token slice held by Apple/Google/RevenueCat, those parties are the relevant data controllers/processors for those records; you can also contact them directly.</p>
-<p>If you reside in the EU/EEA, the UK, California, Virginia, Colorado, Connecticut, or another jurisdiction granting additional rights, those rights apply. To exercise any right, email the address in Section 8 — note that for on-device data we have nothing to retrieve on our side, so the fastest path is the in-app Export / Wipe controls above. We do not charge a fee for, or discriminate against, exercising these rights.</p>
+<p>To exercise any right against us, email the address in Section 8 — note that for on-device data we have nothing to retrieve on our side, so the fastest path is the in-app export / wipe controls above. We do not charge a fee for, or discriminate against, exercising these rights.</p>
 <p>Residents of Washington, Nevada, Colorado, and Connecticut have additional consumer-health-data rights — see the <a href="wa-mhmda-consumer-health-data-policy.html">Consumer Health Data Privacy Policy</a>.</p>
 <hr>
 <h2>5. Optional features that change this posture</h2>
 <h3>Crash reporting — OFF by default</h3>
-<p>The app contains an opt-in crash reporter. It is <strong>off by default</strong>. In the current release it is additionally a no-op: no crash-reporting endpoint is configured in the build, so <strong>nothing is transmitted even if you opt in.</strong> If a future release configures an endpoint, enabling crash reporting (opt-in) would send only sanitized crash metadata — error message, stack trace (file + line), OS family, app version, and timestamp. <strong>Your wellness data — drink entries, mood, journal, notes, tags — is NEVER included in a crash report.</strong> You can disable it from Settings at any time.</p>
+<p>The app contains an opt-in crash reporter (Settings → Privacy &amp; data). It is <strong>off by default</strong>. The reporter is a no-op unless a crash-reporting endpoint is configured in the build — in the current release none is configured, so <strong>nothing is transmitted even if you opt in</strong>. If a future release configures an endpoint, enabling crash reporting (opt-in) would send only sanitized crash metadata — error message, stack trace (file + line), OS family, app version, and timestamp. <strong>Your wellness data — drink entries, mood, journal, notes, tags — is never included in a crash report.</strong> You can disable it from Settings at any time.</p>
 <h3>Encrypted backup — a file you create and hold</h3>
-<p>You can export an encrypted backup file (<code>.alch-backup</code>) from Settings → Privacy &amp; data. It is sealed on your device (Argon2id key derivation + XChaCha20-Poly1305) with a passphrase you choose, and the app simply writes it to wherever you point it — your own device storage, your own cloud drive, or an email to yourself. <strong>The app never uploads it and we never receive it.</strong> Without your passphrase nobody — including us — can read it. There is no account, no server, and no sync service: this exported file is the only way your data can exist off the device, and you are the only one who holds it.</p>
-<h3>AI Insights — OFF by default, opt-in only</h3>
-<p>AI Insights is an optional, opt-in feature available on premium tiers. <strong>It is off by default.</strong> Turning it on requires:</p>
-<ol>
-<li>A premium subscription (so the feature is gated by entitlement).</li>
-<li>Reading the in-app consent screen that lists exactly what is sent</li>
-</ol>
-<p>   and what is never sent.</p>
-<ol>
-<li>Affirming the "I understand" checkbox.</li>
-<li>Tapping <strong>Enable AI Insights</strong>.</li>
-</ol>
-<h4>What gets sent (only after you opt in)</h4>
-<p>When you tap "Generate insights," an anonymized summary is built locally on your device and sent through our server-side proxy to Anthropic (Claude). v1 uses Anthropic only. The summary contains exclusively:</p>
+<p>You can export an encrypted backup file (<code>.alch-backup</code>) from Settings → Backup. It is sealed on your device (Argon2id key derivation + XChaCha20-Poly1305) with a passphrase you choose. <strong>The app never uploads it and we never receive it.</strong> Your passphrase never leaves the device. Without it, nobody — including us — can read the file. If you forget the passphrase, the backup is unrecoverable; that is the point of the encryption.</p>
+<p>There is no account, no server, and no sync service: this exported file is the only way your data can exist off the device, and you are the only one who holds it. Where you keep the file — your phone, your own iCloud Drive or Google Drive, an email to yourself — is entirely your choice, made through your device's share sheet.</p>
+<h3>AI Insights — an opt-in feature, OFF by default</h3>
+<p>AI Insights is <strong>off by default</strong>, and turning it on requires explicit, informed consent (a consent screen listing exactly what is sent and what is never sent, plus an "I understand" affirmation). <strong>Your first insight is free</strong> — after you have logged enough days for the patterns to be meaningful, you may generate one insight without a Premium subscription. Unlimited insights require an active Premium subscription. The design contract, which this policy enforces:</p>
 <ul>
-<li>Weekly buckets grouped by ISO week: drink counts, total standard</li>
+<li>An anonymized summary leaves the device <strong>only when you tap "Generate insights"</strong> — never in the background. It travels through our server-side proxy to the AI model provider we have configured (Anthropic by default; we may switch providers, e.g. to OpenAI, without changing what is sent). This applies equally to the one free insight and to Premium generations.</li>
+<li>The only fields that may ever leave the device are the allowlist in <code>src/lib/ai/types.ts</code> (<code>SanitizedAIPayload</code>): ISO-week drink buckets (no exact timestamps), mood-tag counts, HALT trigger counts, intention counts, day-of-week counts, streak length, a rotating anonymous instance ID, and locale.</li>
+<li><strong>Never sent:</strong> your name, email, or address (we never collect these); any free text (journal entries, drink notes); custom drink names; exact timestamps; location; or any persistent device identifier.</li>
+<li>Whether your one free insight has been used is recorded on our proxy as an anonymous flag tied to your rotating instance ID — no account, no identity.</li>
+<li>Consent can be revoked at any time in Settings, which will wipe the anonymous instance ID locally and stop any in-flight request.</li>
 </ul>
-<p>  drinks, and average craving level per week (no exact timestamps).</p>
-<ul>
-<li>Mood-tag counts (e.g., <code>happy: 12, anxious: 4</code>).</li>
-<li>HALT trigger counts (hungry / angry / lonely / tired).</li>
-<li>Intention counts (celebrate / social / taste / bored / cope / other).</li>
-<li>Day-of-week pattern (counts only).</li>
-<li>Current streak length.</li>
-<li>An anonymous device ID generated locally at consent (rotates on</li>
-</ul>
-<p>  revoke + re-grant).</p>
-<ul>
-<li>Your locale (e.g., <code>en</code>).</li>
-</ul>
-<p>The exact JSON shape is defined in <code>src/lib/ai/types.ts</code> as <code>SanitizedAIPayload</code>. The sanitization function in <code>src/lib/ai/sanitize.ts</code> is <strong>allowlist-based</strong> — fields outside this list cannot pass through. A defense-in-depth check runs before every send and refuses to transmit if any forbidden field is present.</p>
-<h4>What is NEVER sent, even with AI Insights on</h4>
-<ul>
-<li>Your name, email, phone, or address (we never collect these).</li>
-<li>Your IP address beyond what TLS unavoidably exposes to our proxy.</li>
-<li>Your location or any GPS data.</li>
-<li>Any free text you've written: journal entries, drink notes,</li>
-</ul>
-<p>  alt-action text.</p>
-<ul>
-<li>Custom drink names you've created (these may contain personal</li>
-</ul>
-<p>  references like "Dad's IPA").</p>
-<ul>
-<li>Your weight, sex, or any other profile field.</li>
-<li>Exact timestamps of any logged event.</li>
-<li>Any persistent device identifier other than the rotating</li>
-</ul>
-<p>  AI-Insights anonymous instance ID.</p>
-<h4>Provider posture (Anthropic)</h4>
-<ul>
-<li>Anthropic does not train its production models on this data.</li>
-<li>Anthropic may retain prompts for up to approximately 30 days for</li>
-</ul>
-<p>  abuse detection. See https://www.anthropic.com/legal/privacy.</p>
-<ul>
-<li>Our proxy retains only anonymous rate-limit and budget counters</li>
-</ul>
-<p>  (never prompt content) for about 30 days.</p>
-<ul>
-<li>Gemini is a planned v1.1 fallback. v1 sends to Anthropic only;</li>
-</ul>
-<p>  adding Gemini will update this policy and re-request your consent.</p>
-<h4>How the proxy works</h4>
-<p>Alchohalt itself does <strong>not</strong> embed an AI provider API key in the app bundle. The opt-in network call goes to a server-side proxy that holds the API key and rate-limits per anonymous device ID. We log only the timestamp and the anonymous ID for rate-limiting; we do not log the prompt body. The proxy retains nothing else about your usage.</p>
-<p>In v1.0 the proxy is not yet deployed; the consent flow is live but the network call itself is gated behind a feature flag and returns a "coming in v1.1" placeholder. No data leaves the device until the proxy ships.</p>
-<h4>Revoking consent</h4>
-<p>Settings → AI → <strong>Revoke consent</strong>. Revoking:</p>
-<ul>
-<li>Wipes the anonymous device ID locally.</li>
-<li>Stops any in-flight request immediately (client-side abort).</li>
-<li>Future re-grants generate a fresh anonymous device ID, so the</li>
-</ul>
-<p>  proxy cannot link before-vs-after-revoke usage.</p>
-<p>There is nothing for us to delete on the server side beyond the proxy's rate-limit log; that log retains only the anonymous ID and timestamps, not your prompt content.</p>
-<h4>Your state-specific rights</h4>
-<p>If you reside in Washington (MHMDA), Nevada (SB 370), Colorado (CPA), or Connecticut (CTDPA), additional consumer-health-data rights apply. See <a href="wa-mhmda-consumer-health-data-policy.html">Consumer Health Data Privacy Policy</a> for the state-specific disclosures.</p>
+<p>If you never opt in, <strong>no AI-related data leaves your device, period.</strong></p>
 <hr>
 <h2>6. Children</h2>
-<p>Alchohalt is rated <strong>18+ on the App Store</strong>, and on Google Play we set the <strong>target audience to 18+</strong> (a field separate from the IARC content rating that Google Play assigns from the alcohol subject matter). It is <strong>not directed at, or intended for, children</strong>, and we do not knowingly collect personal information from anyone under 18. Because the app has no general account system and stores data on-device, we do not knowingly collect data from children under 13 within the meaning of the U.S. Children's Online Privacy Protection Act (COPPA) — there is no server-side record for us to hold. If a child has used the app, the data is on that device only; uninstalling the app or using "Wipe all data" removes it.</p>
+<p>Alchohalt is rated <strong>17+</strong> because it tracks alcohol consumption. It is <strong>not directed at, and not intended for, children</strong>, and we do not knowingly collect personal information from anyone under 17. Because the app has no account system and stores data on-device, we do not knowingly hold data from children under 13 within the meaning of the U.S. Children's Online Privacy Protection Act (COPPA) — there is no server-side record for us to hold. If a child has used the app, the data is on that device only; uninstalling the app or using "Wipe all data" removes it.</p>
 <hr>
-<h2>7. Not medical advice</h2>
-<p>Alchohalt is a self-tracking tool, not treatment for alcohol use disorder, and it is not a substitute for professional medical care. Alcohol withdrawal can be medically dangerous — if you are a heavy drinker considering quitting or sharply cutting down, please talk to a doctor first. If you are in a medical emergency or need urgent help with substance use, contact emergency services or a healthcare professional right now.</p>
+<h2>7. Changes to this policy</h2>
+<p>When we change this policy, we'll show a one-time in-app banner the next time you open the app, with a summary of what changed. The current version is always available inside the app at <strong>Settings → About &amp; support → Legal</strong>, and at the public legal URL referenced by the App Store / Google Play listing. The "Last updated" date at the top of this document reflects the most recent change.</p>
 <hr>
-<h2>8. Changes to this policy</h2>
-<p>When we change this policy, we'll show a one-time in-app banner the next time you open the app, with a summary of what changed. The current version is always available inside the app at <strong>Settings → Legal</strong>, and at the public legal URL referenced by the App Store / Google Play listing. The "Last updated" date at the top of this document reflects the most recent change.</p>
-<hr>
-<h2>9. Contact</h2>
+<h2>8. Contact</h2>
 <p>For questions about this policy, or to exercise any privacy right, email <strong>alchohalt.support@gmail.com</strong>. We reply on a best-effort basis, typically within 5 business days.</p>
 <p>You can also open a GitHub Issue at https://github.com/Zcg321/Alchohalt/issues for technical reports.</p>
 </body></html>
